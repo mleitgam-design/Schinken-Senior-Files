@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schinken Senior Files</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+        header {
+            background-color: #2f80ed;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h1, h2 {
+            color: #2f80ed;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        footer {
+            background-color: #222;
+            color: #bbb;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+        a {
+            color: #2f80ed;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+            .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .redacted {
+            background-color: #000;
+            color: transparent;
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+        body.revealed .redacted {
+            color: #fff;
+        }
+        .redacted::selection {
+            background: #000;
+        }
+        .hidden {
+            display: none;
+        }
+        .password-box {
+            margin-top: 15px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 320px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            border: none;
+            background: #2f80ed;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Schinken Senior Files</h1>
+        <p>Erinnerungen und Bilder von Schinken – sicher an einem Ort</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Schinken Senior Files</h2>
+            <p>
+                Diese Seite sammelt Fragmente, Hinweise und Erinnerungen.
+                Vieles ist sichtbar – Entscheidendes bleibt geschwärzt.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Tattoo-Motiv (öffentlich)</h2>
+            <p>
+                <span class="redacted">Tattoos spielten eine zentrale Rolle.</span>
+                Immer wieder tauchen Hinweise auf, Gespräche drehen sich darum,
+                Beobachtungen wiederholen sich.
+            </p>
+            <p>
+                <span class="redacted">Besonders häufig beziehen sich die Notizen auf Frauen mit Tattoos.</span>
+                Linien, Symbole, Motive – als Ausdruck von Stärke, Freiheit und Haltung.
+            </p>
+            <p>
+                Dieses Motiv zieht sich durch Jahre.
+                Es bleibt präsent, auch wenn Details geschwärzt sind.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Geschützter Bereich</h2>
+            <p>
+                <span class="redacted">Bestimmte Inhalte sind nicht für jeden bestimmt.</span>
+                Zugriff nur mit Passwort.
+            </p>
+            <div class="password-box">
+                <input id="pw" type="password" placeholder="Passwort eingeben" />
+                <button onclick="unlock()">Freischalten</button>
+            </div>
+        </div>
+
+        <div id="secret" class="card hidden">
+            <h2>Interne Akten – Tattoos & Frauen</h2>
+            <p>
+                <span class="redacted">Die Faszination für Tattoos zeigte sich besonders im Zusammenhang mit Frauen.</span>
+                Wiederkehrende Beschreibungen, ähnliche Muster, gleiche Begriffe.
+            </p>
+            <p>
+                <span class="redacted">Frauen mit Tattoos tauchen überdurchschnittlich oft in den Notizen auf.</span>
+                Nicht zufällig, nicht vereinzelt – sondern systematisch.
+            </p>
+            <p>
+                Gespräche, Erinnerungen und Eindrücke verdichten sich zu einem klaren Motiv.
+                <span class="redacted">Dieses darf von seinem Sohn nicht entdeckt werden.</span>
+            </p>
+            <p>
+                Tattoos werden hier nicht als Schmuck beschrieben,
+                sondern als Signal: Selbstbestimmung, Rebellion, Identität.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Bilderarchiv</h2>
+            <div class="gallery">
+                <img src="schinken1.jpg" alt="Schinken Bild 1" />
+                <img src="schinken2.jpg" alt="Schinken Bild 2" />
+                <img src="schinken3.jpg" alt="Schinken Bild 3" />
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function unlock() {
+            const pw = document.getElementById('pw').value;
+            // ÄNDERE DAS PASSWORT HIER:
+            if (pw === 'schinken') {
+                document.getElementById('secret').classList.remove('hidden');
+                document.body.classList.add('revealed');
+            } else {
+                alert('Falsches Passwort');
+            }
+        } else {
+                alert('Falsches Passwort');
+            }
+        }
+    </script>
+
+    <footer>
+        <p>© 2026 Schinken Senior Files | Öffentlich zugänglich</p>
+    </footer>
+
+</body>
+</html>
